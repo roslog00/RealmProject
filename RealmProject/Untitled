@@ -1,0 +1,626 @@
+diff --git a/RealmProject.xcodeproj/project.pbxproj b/RealmProject.xcodeproj/project.pbxproj
+index ad2c7b2..4813fc9 100644
+--- a/RealmProject.xcodeproj/project.pbxproj
++++ b/RealmProject.xcodeproj/project.pbxproj
+@@ -8,17 +8,31 @@
+ 
+ /* Begin PBXBuildFile section */
+ 		56204A9D2A4B0207005371FD /* RealmProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56204A9C2A4B0207005371FD /* RealmProjectApp.swift */; };
+-		56204A9F2A4B0207005371FD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56204A9E2A4B0207005371FD /* ContentView.swift */; };
+ 		56204AA12A4B0208005371FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56204AA02A4B0208005371FD /* Assets.xcassets */; };
+ 		56204AA42A4B0208005371FD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56204AA32A4B0208005371FD /* Preview Assets.xcassets */; };
++		56204AAE2A4B0297005371FD /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 56204AAD2A4B0297005371FD /* Realm */; };
++		56204AB02A4B0297005371FD /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 56204AAF2A4B0297005371FD /* RealmSwift */; };
++		56204AB22A4B03EC005371FD /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56204AB12A4B03EC005371FD /* Model.swift */; };
++		56204AB42A4B0424005371FD /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56204AB32A4B0424005371FD /* ViewModel.swift */; };
++		56204AB62A4B10EB005371FD /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56204AB52A4B10EB005371FD /* TaskView.swift */; };
++		56204AB92A4B11D4005371FD /* TaskRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56204AB82A4B11D4005371FD /* TaskRow.swift */; };
++		56204ABB2A4B159F005371FD /* NewTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56204ABA2A4B159F005371FD /* NewTask.swift */; };
++		56204ABD2A4B299B005371FD /* AddButtonCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56204ABC2A4B299B005371FD /* AddButtonCircle.swift */; };
++		56204ABF2A4B2AD7005371FD /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56204ABE2A4B2AD7005371FD /* Content.swift */; };
+ /* End PBXBuildFile section */
+ 
+ /* Begin PBXFileReference section */
+ 		56204A992A4B0207005371FD /* RealmProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealmProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+ 		56204A9C2A4B0207005371FD /* RealmProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProjectApp.swift; sourceTree = "<group>"; };
+-		56204A9E2A4B0207005371FD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+ 		56204AA02A4B0208005371FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+ 		56204AA32A4B0208005371FD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
++		56204AB12A4B03EC005371FD /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
++		56204AB32A4B0424005371FD /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
++		56204AB52A4B10EB005371FD /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
++		56204AB82A4B11D4005371FD /* TaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRow.swift; sourceTree = "<group>"; };
++		56204ABA2A4B159F005371FD /* NewTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTask.swift; sourceTree = "<group>"; };
++		56204ABC2A4B299B005371FD /* AddButtonCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonCircle.swift; sourceTree = "<group>"; };
++		56204ABE2A4B2AD7005371FD /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
+ /* End PBXFileReference section */
+ 
+ /* Begin PBXFrameworksBuildPhase section */
+@@ -26,6 +40,8 @@
+ 			isa = PBXFrameworksBuildPhase;
+ 			buildActionMask = 2147483647;
+ 			files = (
++				56204AB02A4B0297005371FD /* RealmSwift in Frameworks */,
++				56204AAE2A4B0297005371FD /* Realm in Frameworks */,
+ 			);
+ 			runOnlyForDeploymentPostprocessing = 0;
+ 		};
+@@ -51,9 +67,8 @@
+ 		56204A9B2A4B0207005371FD /* RealmProject */ = {
+ 			isa = PBXGroup;
+ 			children = (
+-				56204A9C2A4B0207005371FD /* RealmProjectApp.swift */,
+-				56204A9E2A4B0207005371FD /* ContentView.swift */,
+-				56204AA02A4B0208005371FD /* Assets.xcassets */,
++				56204AAB2A4B0239005371FD /* Model */,
++				56204AAA2A4B022B005371FD /* View's */,
+ 				56204AA22A4B0208005371FD /* Preview Content */,
+ 			);
+ 			path = RealmProject;
+@@ -63,10 +78,41 @@
+ 			isa = PBXGroup;
+ 			children = (
+ 				56204AA32A4B0208005371FD /* Preview Assets.xcassets */,
++				56204AA02A4B0208005371FD /* Assets.xcassets */,
+ 			);
+ 			path = "Preview Content";
+ 			sourceTree = "<group>";
+ 		};
++		56204AAA2A4B022B005371FD /* View's */ = {
++			isa = PBXGroup;
++			children = (
++				56204AB72A4B11B8005371FD /* Component's */,
++				56204AB52A4B10EB005371FD /* TaskView.swift */,
++				56204ABA2A4B159F005371FD /* NewTask.swift */,
++				56204ABE2A4B2AD7005371FD /* Content.swift */,
++			);
++			path = "View's";
++			sourceTree = "<group>";
++		};
++		56204AAB2A4B0239005371FD /* Model */ = {
++			isa = PBXGroup;
++			children = (
++				56204A9C2A4B0207005371FD /* RealmProjectApp.swift */,
++				56204AB12A4B03EC005371FD /* Model.swift */,
++				56204AB32A4B0424005371FD /* ViewModel.swift */,
++			);
++			path = Model;
++			sourceTree = "<group>";
++		};
++		56204AB72A4B11B8005371FD /* Component's */ = {
++			isa = PBXGroup;
++			children = (
++				56204AB82A4B11D4005371FD /* TaskRow.swift */,
++				56204ABC2A4B299B005371FD /* AddButtonCircle.swift */,
++			);
++			path = "Component's";
++			sourceTree = "<group>";
++		};
+ /* End PBXGroup section */
+ 
+ /* Begin PBXNativeTarget section */
+@@ -83,6 +129,10 @@
+ 			dependencies = (
+ 			);
+ 			name = RealmProject;
++			packageProductDependencies = (
++				56204AAD2A4B0297005371FD /* Realm */,
++				56204AAF2A4B0297005371FD /* RealmSwift */,
++			);
+ 			productName = RealmProject;
+ 			productReference = 56204A992A4B0207005371FD /* RealmProject.app */;
+ 			productType = "com.apple.product-type.application";
+@@ -111,6 +161,9 @@
+ 				Base,
+ 			);
+ 			mainGroup = 56204A902A4B0207005371FD;
++			packageReferences = (
++				56204AAC2A4B0297005371FD /* XCRemoteSwiftPackageReference "realm-swift" */,
++			);
+ 			productRefGroup = 56204A9A2A4B0207005371FD /* Products */;
+ 			projectDirPath = "";
+ 			projectRoot = "";
+@@ -137,7 +190,13 @@
+ 			isa = PBXSourcesBuildPhase;
+ 			buildActionMask = 2147483647;
+ 			files = (
+-				56204A9F2A4B0207005371FD /* ContentView.swift in Sources */,
++				56204AB22A4B03EC005371FD /* Model.swift in Sources */,
++				56204AB92A4B11D4005371FD /* TaskRow.swift in Sources */,
++				56204AB42A4B0424005371FD /* ViewModel.swift in Sources */,
++				56204ABF2A4B2AD7005371FD /* Content.swift in Sources */,
++				56204ABB2A4B159F005371FD /* NewTask.swift in Sources */,
++				56204ABD2A4B299B005371FD /* AddButtonCircle.swift in Sources */,
++				56204AB62A4B10EB005371FD /* TaskView.swift in Sources */,
+ 				56204A9D2A4B0207005371FD /* RealmProjectApp.swift in Sources */,
+ 			);
+ 			runOnlyForDeploymentPostprocessing = 0;
+@@ -344,6 +403,30 @@
+ 			defaultConfigurationName = Release;
+ 		};
+ /* End XCConfigurationList section */
++
++/* Begin XCRemoteSwiftPackageReference section */
++		56204AAC2A4B0297005371FD /* XCRemoteSwiftPackageReference "realm-swift" */ = {
++			isa = XCRemoteSwiftPackageReference;
++			repositoryURL = "https://github.com/realm/realm-swift";
++			requirement = {
++				branch = master;
++				kind = branch;
++			};
++		};
++/* End XCRemoteSwiftPackageReference section */
++
++/* Begin XCSwiftPackageProductDependency section */
++		56204AAD2A4B0297005371FD /* Realm */ = {
++			isa = XCSwiftPackageProductDependency;
++			package = 56204AAC2A4B0297005371FD /* XCRemoteSwiftPackageReference "realm-swift" */;
++			productName = Realm;
++		};
++		56204AAF2A4B0297005371FD /* RealmSwift */ = {
++			isa = XCSwiftPackageProductDependency;
++			package = 56204AAC2A4B0297005371FD /* XCRemoteSwiftPackageReference "realm-swift" */;
++			productName = RealmSwift;
++		};
++/* End XCSwiftPackageProductDependency section */
+ 	};
+ 	rootObject = 56204A912A4B0207005371FD /* Project object */;
+ }
+diff --git a/RealmProject.xcodeproj/xcuserdata/veronikagera.xcuserdatad/xcschemes/xcschememanagement.plist b/RealmProject.xcodeproj/xcuserdata/veronikagera.xcuserdatad/xcschemes/xcschememanagement.plist
+index 0bd3cdc..82b5756 100644
+--- a/RealmProject.xcodeproj/xcuserdata/veronikagera.xcuserdatad/xcschemes/xcschememanagement.plist
++++ b/RealmProject.xcodeproj/xcuserdata/veronikagera.xcuserdatad/xcschemes/xcschememanagement.plist
+@@ -4,6 +4,27 @@
+ <dict>
+ 	<key>SchemeUserState</key>
+ 	<dict>
++		<key>GettingStarted (Playground) 1.xcscheme</key>
++		<dict>
++			<key>isShown</key>
++			<false/>
++			<key>orderHint</key>
++			<integer>2</integer>
++		</dict>
++		<key>GettingStarted (Playground) 2.xcscheme</key>
++		<dict>
++			<key>isShown</key>
++			<false/>
++			<key>orderHint</key>
++			<integer>3</integer>
++		</dict>
++		<key>GettingStarted (Playground).xcscheme</key>
++		<dict>
++			<key>isShown</key>
++			<false/>
++			<key>orderHint</key>
++			<integer>1</integer>
++		</dict>
+ 		<key>RealmProject.xcscheme_^#shared#^_</key>
+ 		<dict>
+ 			<key>orderHint</key>
+diff --git a/RealmProject/ContentView.swift b/RealmProject/ContentView.swift
+deleted file mode 100644
+index dd7cc42..0000000
+--- a/RealmProject/ContentView.swift
++++ /dev/null
+@@ -1,24 +0,0 @@
+-//
+-//  ContentView.swift
+-//  RealmProject
+-//
+-//  Created by Вероника Гера on 27.06.2023.
+-//
+-
+-import SwiftUI
+-
+-struct ContentView: View {
+-    var body: some View {
+-        VStack {
+-            Image(systemName: "globe")
+-                .imageScale(.large)
+-                .foregroundStyle(.tint)
+-            Text("Hello, world!")
+-        }
+-        .padding()
+-    }
+-}
+-
+-#Preview {
+-    ContentView()
+-}
+diff --git a/RealmProject/Model/Model.swift b/RealmProject/Model/Model.swift
+new file mode 100644
+index 0000000..1dd02ff
+--- /dev/null
++++ b/RealmProject/Model/Model.swift
+@@ -0,0 +1,18 @@
++//
++//  Model.swift
++//  RealmProject
++//
++//  Created by Вероника Гера on 27.06.2023.
++//
++
++import Foundation
++import RealmSwift
++
++
++final class Item: Object, ObjectKeyIdentifiable {
++    
++    @Persisted(primaryKey: true) var id: ObjectId
++    @Persisted var title = ""
++    @Persisted var completed = false 
++    
++}
+diff --git a/RealmProject/RealmProjectApp.swift b/RealmProject/Model/RealmProjectApp.swift
+similarity index 89%
+rename from RealmProject/RealmProjectApp.swift
+rename to RealmProject/Model/RealmProjectApp.swift
+index a6ba0f7..0750eb7 100644
+--- a/RealmProject/RealmProjectApp.swift
++++ b/RealmProject/Model/RealmProjectApp.swift
+@@ -11,7 +11,10 @@ import SwiftUI
+ struct RealmProjectApp: App {
+     var body: some Scene {
+         WindowGroup {
+-            ContentView()
++            Content()
+         }
+     }
+ }
++
++
++
+diff --git a/RealmProject/Model/ViewModel.swift b/RealmProject/Model/ViewModel.swift
+new file mode 100644
+index 0000000..96274a0
+--- /dev/null
++++ b/RealmProject/Model/ViewModel.swift
+@@ -0,0 +1,101 @@
++//
++//  ViewModel.swift
++//  RealmProject
++//
++//  Created by Вероника Гера on 27.06.2023.
++//
++
++import Foundation
++import RealmSwift
++
++class RealmManager: ObservableObject {
++    private(set) var localRealm: Realm?
++    @Published private(set) var tasks : [Item] = []
++
++    init() {
++        openRealm()
++        getTask()
++    }
++    
++    func openRealm() {
++        
++        let _ =  print(Realm.Configuration.defaultConfiguration.fileURL!)
++        
++        do{
++            let config = Realm.Configuration(schemaVersion: 1)
++            Realm.Configuration.defaultConfiguration = config
++            localRealm = try Realm()
++        } catch {
++            print("Error opening Realm: \(error)")
++        }
++    }
++    
++    func addTask(taskTitle: String) {
++        
++        if let localRealm = localRealm {
++            do{
++                try localRealm.write {
++                    let newTask = Item(value: ["title": taskTitle, "completed": false])
++                    localRealm.add(newTask)
++                    
++                    getTask()
++                    print("New task - \(taskTitle) added to Realm ")
++                }
++            } catch {
++                print("Error adding task to Realm \(error)")
++            }
++        }
++        
++    }
++    
++    func getTask() {
++        if let localrealm = localRealm {
++           let allTask = localrealm.objects(Item.self).sorted(byKeyPath: "completed")
++            tasks = []
++            allTask.forEach { task in
++                tasks.append(task)
++            }
++        }
++        
++    }
++    
++    
++    func updateTask(id: ObjectId, completed: Bool) {
++        if let localrealm = localRealm {
++            do {
++                let taskToUpdate = localrealm.objects(Item.self).filter(NSPredicate(format: "id == %@", id))
++                
++                guard !taskToUpdate.isEmpty else { return }
++                
++                try localrealm.write {
++                    taskToUpdate[0].completed = completed
++                    getTask()
++                    print("task updating")
++                }
++            } catch {
++                print("Error updating task \(id) to Realm \(error)")
++            }
++        }
++    }
++    
++    func deletTask(id: ObjectId) {
++        if let localrealm = localRealm {
++            do {
++                let taskToDelete = localrealm.objects(Item.self).filter(NSPredicate(format: "id == %@", id))
++                
++                guard !taskToDelete.isEmpty else { return }
++                
++                try localrealm.write {
++                    localrealm.delete(taskToDelete)
++                    getTask()
++                }
++            } catch {
++                print("Error deleting task with id \(id) to Realm \(error)")
++            }
++            
++        }
++        
++    }
++    
++}
++
+diff --git a/RealmProject/Assets.xcassets/AccentColor.colorset/Contents.json b/RealmProject/Preview Content/Assets.xcassets/AccentColor.colorset/Contents.json
+similarity index 100%
+rename from RealmProject/Assets.xcassets/AccentColor.colorset/Contents.json
+rename to RealmProject/Preview Content/Assets.xcassets/AccentColor.colorset/Contents.json
+diff --git a/RealmProject/Assets.xcassets/AppIcon.appiconset/Contents.json b/RealmProject/Preview Content/Assets.xcassets/AppIcon.appiconset/Contents.json
+similarity index 100%
+rename from RealmProject/Assets.xcassets/AppIcon.appiconset/Contents.json
+rename to RealmProject/Preview Content/Assets.xcassets/AppIcon.appiconset/Contents.json
+diff --git a/RealmProject/Assets.xcassets/Contents.json b/RealmProject/Preview Content/Assets.xcassets/Contents.json
+similarity index 100%
+rename from RealmProject/Assets.xcassets/Contents.json
+rename to RealmProject/Preview Content/Assets.xcassets/Contents.json
+diff --git a/RealmProject/View's/Component's/AddButtonCircle.swift b/RealmProject/View's/Component's/AddButtonCircle.swift
+new file mode 100644
+index 0000000..f5e8612
+--- /dev/null
++++ b/RealmProject/View's/Component's/AddButtonCircle.swift
+@@ -0,0 +1,31 @@
++//
++//  AddButtonCircle.swift
++//  RealmProject
++//
++//  Created by Вероника Гера on 27.06.2023.
++//
++
++import SwiftUI
++
++struct AddButtonCircle: View {
++    
++    private let size = UIScreen.main.bounds
++    
++    var body: some View {
++        ZStack {
++            Circle()
++                .frame(width: size.width * (0.2))
++                .foregroundStyle(Color(hue: 0.612, saturation: 0.964, brightness: 0.535))
++            
++            Text("+")
++                .font(.title)
++                .fontWeight(.heavy)
++                .frame(width: size.width * (0.1), height: size.width * (0.1))
++                .foregroundStyle(.white)
++        }
++    }
++}
++
++#Preview {
++    AddButtonCircle()
++}
+diff --git a/RealmProject/View's/Component's/TaskRow.swift b/RealmProject/View's/Component's/TaskRow.swift
+new file mode 100644
+index 0000000..bdaf821
+--- /dev/null
++++ b/RealmProject/View's/Component's/TaskRow.swift
+@@ -0,0 +1,25 @@
++//
++//  TaskROw.swift
++//  RealmProject
++//
++//  Created by Вероника Гера on 27.06.2023.
++//
++
++import SwiftUI
++
++struct TaskROw: View {
++    var task: String
++    var completed: Bool
++    
++    var body: some View {
++        HStack(spacing: 20){
++            Image(systemName: completed ? "checkmark.circle" : "circle")
++            
++            Text(task)
++        }
++    }
++}
++
++#Preview {
++    TaskROw(task: "Do loundry", completed: true)
++}
+diff --git a/RealmProject/View's/Content.swift b/RealmProject/View's/Content.swift
+new file mode 100644
+index 0000000..2787f58
+--- /dev/null
++++ b/RealmProject/View's/Content.swift
+@@ -0,0 +1,37 @@
++//
++//  Content.swift
++//  RealmProject
++//
++//  Created by Вероника Гера on 27.06.2023.
++//
++
++import SwiftUI
++
++struct Content: View {
++    
++    @StateObject var realmManager = RealmManager()
++    @State private var addTaskButton = false
++    
++    var body: some View {
++        ZStack(alignment: .bottomTrailing) {
++            TaskView()
++                .environmentObject(realmManager)
++            
++            
++            AddButtonCircle()
++                .padding()
++                .onTapGesture {
++                    addTaskButton.toggle()
++                }
++            
++        }.sheet(isPresented: $addTaskButton, content: {
++            NewTask()
++                .environmentObject(self.realmManager)
++        })
++        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
++    }
++}
++
++#Preview {
++    Content()
++}
+diff --git a/RealmProject/View's/NewTask.swift b/RealmProject/View's/NewTask.swift
+new file mode 100644
+index 0000000..37b8d1f
+--- /dev/null
++++ b/RealmProject/View's/NewTask.swift
+@@ -0,0 +1,58 @@
++//
++//  NewTask.swift
++//  RealmProject
++//
++//  Created by Вероника Гера on 27.06.2023.
++//
++
++import SwiftUI
++
++struct NewTask: View {
++    
++    let size = UIScreen.main.bounds
++    @State var titleOfTask = ""
++    @Environment(\.dismiss) var dismiss
++    @EnvironmentObject var realmManager: RealmManager
++    
++    var body: some View {
++        VStack(alignment: .leading, spacing: size.height * (0.04)) {
++            
++            Text("Create New Task")
++                .font(.title).bold()
++                .padding(.horizontal, size.width * (0.1))
++            
++            TextField(text: $titleOfTask) {
++                Text("Enter name of task")
++            }.textFieldStyle(.roundedBorder)
++                .padding(.horizontal, size.width * (0.1))
++            
++            
++            Button(action: {
++                if titleOfTask != "" {
++                    realmManager.addTask(taskTitle: titleOfTask)
++                }
++                dismiss()
++                
++            }, label: {
++                Text("Add task")
++                    .foregroundStyle(.white)
++                    .padding()
++                    .padding(.horizontal)
++                    .background(Color(hue: 0.0, saturation: 0.4, brightness: 0.992))
++                    .cornerRadius(15)
++                
++            })
++            .padding(.horizontal, size.width * (0.1))
++            
++            Spacer()
++            
++        }.frame(maxWidth: .infinity, maxHeight: .infinity)
++            .padding(.top, size.height * (0.05))
++        .background(Color(hue: 0.573, saturation: 0.4, brightness: 0.972))
++    }
++}
++
++#Preview {
++    NewTask()
++        .environmentObject(RealmManager())
++}
+diff --git a/RealmProject/View's/TaskView.swift b/RealmProject/View's/TaskView.swift
+new file mode 100644
+index 0000000..382fc00
+--- /dev/null
++++ b/RealmProject/View's/TaskView.swift
+@@ -0,0 +1,53 @@
++//
++//  TaskView.swift
++//  RealmProject
++//
++//  Created by Вероника Гера on 27.06.2023.
++//
++
++import SwiftUI
++
++struct TaskView: View {
++    
++    @EnvironmentObject var realmManager: RealmManager
++    
++    var body: some View {
++        VStack{
++            Text("My task")
++                .font(.title3.bold())
++                .padding()
++                .frame(maxWidth: .infinity, alignment: .leading)
++            
++            
++            List {
++                ForEach(realmManager.tasks, id: \.id){ task in
++                    
++                    if !task.isInvalidated {
++                        TaskROw(task: task.title, completed: task.completed)
++                            .onTapGesture {
++                                realmManager.updateTask(id: task.id, completed: !task.completed)
++                            }.swipeActions(edge: .trailing){
++                                Button(role: .destructive) {
++                                    realmManager.deletTask(id: task.id)
++                                } label: {
++                                    Label("Delete", systemImage: "trash")
++                                }
++                                
++                            }
++                    }
++                    
++                    
++                }
++            }.onAppear {
++                UITableView.appearance().backgroundColor = UIColor.clear
++                UITableViewCell.appearance().backgroundColor = UIColor.clear
++            }
++        }.frame(maxWidth: .infinity, maxHeight: .infinity)
++        .background(Color(hue: 0.573, saturation: 0.4, brightness: 0.972))
++    }
++}
++
++#Preview {
++    TaskView()
++        .environmentObject(RealmManager())
++}
